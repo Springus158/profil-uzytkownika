@@ -18,21 +18,26 @@ export default function ProfilePage() {
 
         {/* Nagłówek profilu */}
         <header className="px-6 pb-6 sm:px-10">
-          <div className="-mt-12 flex flex-col gap-4 sm:-mt-16 sm:flex-row sm:items-end sm:justify-between">
-            <div className="flex items-end gap-4">
-              <Avatar src={user.avatarUrl} alt={`Avatar — ${user.name}`} size={112} />
-              <div className="pb-1">
-                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-                  {user.name}
-                </h1>
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  {user.role}
-                </p>
-              </div>
+          {/* Avatar wystaje na baner, ale tekst zostaje w normalnym przepływie poniżej — nigdy nie jest ucinany */}
+          <div className="-mt-12 sm:-mt-14">
+            <Avatar
+              src={user.avatarUrl}
+              alt={`Avatar — ${user.name}`}
+              size={112}
+            />
+          </div>
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0">
+              <h1 className="text-2xl font-bold tracking-tight break-words sm:text-3xl">
+                {user.name}
+              </h1>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                {user.role}
+              </p>
             </div>
             <a
               href={`mailto:${user.email}`}
-              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow transition hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-xl bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow transition hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
             >
               Napisz wiadomość
             </a>
